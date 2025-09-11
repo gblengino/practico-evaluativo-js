@@ -17,10 +17,9 @@ jobs:
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.8.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ secrets.DEPLOY_PP1_DEVOPS }}
 
       - name: Run Deploy Script
         run: |
-         ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}
-          "cd ~/lemp-sites/giuliano_blengino/production &&
-            git pull origin main"
+         ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} \
+          "cd ~/lemp-sites/giuliano_blengino/production && git pull origin main"
